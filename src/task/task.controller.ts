@@ -33,7 +33,7 @@ export class TaskController {
     return this.taskService.getAllTasks();
   }
 
-  @Patch('update/:taskId')
+  @Patch(':taskId')
   updateTask(
     @GetUser('id') userId: string,
     @Param('taskId') taskId: string,
@@ -42,7 +42,7 @@ export class TaskController {
     return this.taskService.updateTask(userId, taskId, dto);
   }
 
-  @Delete('delete/:taskId')
+  @Delete(':taskId')
   deleteTask(@GetUser('id') userId: string, @Param('taskId') taskId: string) {
     return this.taskService.deleteTask(userId, taskId);
   }

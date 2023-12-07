@@ -1,73 +1,74 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# HNGx stage II
+## Overview
+This is a simple task management API. It provides basic CRUD (Create, Read, Update, Delete) operations for managing tasks. And also uses JWT for authentication and authorization. 
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Features
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+- Create a user with name, email and other basic information.
+- Login in user with email and password.
+- Creating a task with task name, description and other important information.
+- Retrieving a particular task by ID.
+- Retrieving task for specific user.
+- retrieving all tasks from database.
+- Updating an existing task.
+- Deleting a task.
 
-## Description
+## Getting Started
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Prerequisites
+- This API was created using nestjs, therefore you must have [nestjs](https://docs.nestjs.com/) installed on your machine.
+- get a postgres database running.
+
+## Dependencies used
+### Validation
+For data integrity, I used class-validator and class-transformer. With the help of DTO (Data Transfer Object), I have been able to validate form input and return the appropriate responses.
+
+### Authorization and Authentication
+I used Jwt with passport to give authorization to users, authenticate users and also restrict access to some API endpoints.
+
+### API Response
+I created a generic API response type so all responses would have the same format. You can find this in the common/types/defaultReturn.type.ts file.
 
 ## Installation
-
+1. Clone this repository:
 ```bash
-$ yarn install
+ git clone https://github.com/krispamB/HNGX.git 
 ```
-
-## Running the app
-
+2. Install dependencies:
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+  npm install or yarn install
 ```
+3. Start the server:
+  ```bash
+    yarn start:dev
+  ```
 
-## Test
+## Usage
 
-```bash
-# unit tests
-$ yarn run test
+### Endpoints
 
-# e2e tests
-$ yarn run test:e2e
+- **POST /auth/signup:** To signup user.
+- **POST /auth/login:** To login user, this returns the access token.
+- **POST /task:** Create a task.
+- **GET /task/:taskId:** Get task by Id.
+- **GET /task/user:** Get logged in user task.
+- **GET /task/all:** Get all tasks in DB.
+- **PATCH /task/:taskId:** Update user task.
+- **DELETE /task/:taskId:** Get logged in user task.
 
-# test coverage
-$ yarn run test:cov
+## Testing
+To test the API:
+- Go to the published postman docs at [DOCS](https://documenter.getpostman.com/view/31093363/2s9YeN3UgQ)
+- Click on **Run in Postman**(You can use it on the web)
+- Select a workspace.
+- Add **LIVE_URL** to a new environment and set the initial and current value to: 
 ```
+https://talented-pear-panda.cyclic.app/api
+```
+and save.
+- Run tests.
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## DB DIAGRAM
+You can find the Database model at [DB](https://lucid.app/documents/view/6390f608-b069-47c1-894e-f075f8dc6e7e)
