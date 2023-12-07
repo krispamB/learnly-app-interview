@@ -63,7 +63,7 @@ To test the API:
 - Select a workspace.
 - Add **LIVE_URL** to a new environment and set the initial and current value to: 
 ```
-https://talented-pear-panda.cyclic.app/api
+https://tiny-tan-chinchilla-garb.cyclic.app/api/v1
 ```
 and save.
 - Run tests.
