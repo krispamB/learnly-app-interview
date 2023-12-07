@@ -1,1 +1,1 @@
-export * from './defaultReturn.type'
+export * from './defaultReturn.type';
