@@ -1,4 +1,4 @@
-# HNGx stage II
+# Taskman App
 ## Overview
 This is a simple task management API. It provides basic CRUD (Create, Read, Update, Delete) operations for managing tasks. And also uses JWT for authentication and authorization. 
 
