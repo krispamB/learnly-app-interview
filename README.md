@@ -32,7 +32,7 @@ I created a generic API response type so all responses would have the same forma
 ## Installation
 1. Clone this repository:
 ```bash
- git clone https://github.com/krispamB/HNGX.git 
+ git clone https://github.com/krispamB/learnly-app-interview
 ```
 2. Install dependencies:
 ```bash
